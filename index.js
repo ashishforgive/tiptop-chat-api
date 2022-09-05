@@ -58,6 +58,13 @@ io.on('connection', (socket) => {
     io.emit('users', users)
   })
 })
+
+app.get('/', (req, res) => {
+    res
+      .status(200)
+      .send('Hello server is running for chat Api')
+      .end();
+  });
 // server.listen(port)
 server.listen(port, () => {
   console.log("Index11 listening at", port);
