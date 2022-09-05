@@ -3,7 +3,7 @@ const express = require('express')
 const cors = require('cors')
 const socketIO = require('socket.io')
 const app = express()
-const port = 3000
+// const port = 3000
 
 app.use(cors())
 const server = http.createServer(app)
@@ -62,10 +62,10 @@ io.on('connection', (socket) => {
 app.get('/', (req, res) => {
     res
       .status(200)
-      .send('Hello server is running for chat Api')
+      .send('Server is running for chat Api')
       .end();
   });
 // server.listen(port)
-server.listen(port, () => {
-  console.log("Index11 listening at", port);
+server.listen(process.env.PORT || 3000, () => {
+  console.log("Index11 listening at", process.env.PORT || 3000);
 });
