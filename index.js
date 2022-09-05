@@ -9,7 +9,7 @@ app.use(cors())
 const server = http.createServer(app)
 //const io = require('socket.io')(server, {path: '/octagon/socket.io'});
 // const io = socketIO(server)
-const io = socketIO((server, {path: '/chat/socket.io'}))
+const io = socketIO((server))
 const users = []
 
 io.on('connection', (socket) => {
@@ -65,6 +65,7 @@ app.get('/', (req, res) => {
       .send('Server is running for chat Api')
       .end();
   });
+  
 // server.listen(port)
 server.listen(process.env.PORT || 3000, () => {
   console.log("Index11 listening at", process.env.PORT || 3000);
